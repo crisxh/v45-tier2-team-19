@@ -2,6 +2,7 @@ import "./Navbar.css";
 import { useState, useEffect, useRef } from "react";
 import CollapsedNav from "./CollapsedNav";
 import { MdMenu } from 'react-icons/md';
+import starryBg from '../../assets/starryMeteorHeader.png'
 
 const Navbar = function ({ headerHeight }) {
   const [sticky, setSticky] = useState(false);
@@ -68,7 +69,9 @@ const Navbar = function ({ headerHeight }) {
               position: "fixed",
               left: "0px",
               top: "0px",
-              backgroundColor: 'purple'
+              backgroundColor: 'purple',
+              backgroundImage: `url(${starryBg})`,
+              backgroundSize: 'cover',
             }
             : {}
         }
@@ -87,13 +90,21 @@ const Navbar = function ({ headerHeight }) {
         ) : (
           <div>
             {!toggled || smallScreen ? (
-              <button className='collapsedBtn' onClick={() => { setToggled(!toggled) }} style={sticky ? { backgroundColor: 'purple' } : {}}><MdMenu /></button>
+              <button className='collapsedBtn' onClick={() => { setToggled(!toggled) }} style={sticky ? { fontSize: '1em', backgroundColor: 'transparent' } : { padding: '0px', fontSize: '5em', alignSelf: 'center' }}><MdMenu /></button>
 
             ) : (
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+
+              }}>
 
                 <nav  >
-                  <ul className='collapsedUl' style={{ width: '100vw', display: 'flex', flexDirection: 'column', position: 'relative', top: '0em', left: '0px', alignItems: 'center', backgroundColor: 'purple' }} >
+                  <ul className='collapsedUl' style={{
+                    width: '100vw', display: 'flex', flexDirection: 'column', position: 'relative', top: '0em', left: '0px', alignItems: 'center', backgroundColor: 'purple', backgroundImage: `url(${starryBg})`,
+                    backgroundSize: 'cover',
+                  }} >
                     {menuList.map((item, index) => {
                       return (
                         <a href={`#${item}`} onClick={() => { handleMenuClose() }} key={index} >

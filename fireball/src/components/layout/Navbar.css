@@ -10,6 +10,7 @@ display: flex;
   padding: 0px;
   align-content: space-between;
   background-color:transparent;
+  z-index:999;
   
   
 }
@@ -54,16 +55,11 @@ display: flex;
 .collapsedBtn{
   display:flex;
     height: 100%;
-  width: 100vw;
+ 
   padding:'0px';
   margin:0px;
   background-color:transparent;
   outline:none;
   border:none;
   justify-content:center;
-}
-
-.collapsedBtn:hover{
-  background-color:white;
-  color:black;
 }
